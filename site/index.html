@@ -10,6 +10,8 @@
       
       
       
+        <link rel="next" href="explanation/">
+      
       
         
       
@@ -96,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Inicio
+              Cuadratura Gaussiana
             
           </span>
         </div>
@@ -208,7 +210,7 @@
   <span class="md-ellipsis">
     
   
-    Inicio
+    Cuadratura Gaussiana
   
 
     
@@ -226,7 +228,7 @@
   <span class="md-ellipsis">
     
   
-    Inicio
+    Cuadratura Gaussiana
   
 
     
@@ -266,7 +268,7 @@
   <a href="#resultados-obtenidos-segun-n" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Resultados Obtenidos según $N$
+        Resultados Obtenidos según \(N\)
       
     </span>
   </a>
@@ -288,6 +290,87 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="explanation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Explanation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tutorials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -333,7 +416,7 @@
   <a href="#resultados-obtenidos-segun-n" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Resultados Obtenidos según $N$
+        Resultados Obtenidos según \(N\)
       
     </span>
   </a>
@@ -371,15 +454,15 @@
 <h1 id="cuadratura-gaussiana">Cuadratura Gaussiana</h1>
 <p>Implementación del método de integración numérica de Gauss-Legendre en Python.</p>
 <h2 id="descripcion-de-la-funcion">Descripción de la Función</h2>
-<p>Se evalúa la integración de la siguiente función en el intervalo $[0, 2]$:</p>
-<p>$$ f(x) = x^6 - x^2 \sin(2x) $$</p>
+<p>Se evalúa la integración de la siguiente función en el intervalo <span class="arithmatex">\([0, 2]\)</span>:</p>
+<div class="arithmatex">\[ f(x) = x^6 - x^2 \sin(2x) \]</div>
 <hr />
-<h2 id="resultados-obtenidos-segun-n">Resultados Obtenidos según $N$</h2>
-<p>Al evaluar con la cuadratura gaussiana cambiando el número de puntos $N$, se obtuvieron los siguientes valores:</p>
+<h2 id="resultados-obtenidos-segun-n">Resultados Obtenidos según <span class="arithmatex">\(N\)</span></h2>
+<p>Al evaluar con la cuadratura gaussiana cambiando el número de puntos <span class="arithmatex">\(N\)</span>, se obtuvieron los siguientes valores:</p>
 <table>
 <thead>
 <tr>
-<th style="text-align: center;">Puntos ($N$)</th>
+<th style="text-align: center;">Puntos (<span class="arithmatex">\(N\)</span>)</th>
 <th style="text-align: center;">Resultado de la Integral</th>
 </tr>
 </thead>
@@ -408,7 +491,7 @@
 </table>
 <hr />
 <h2 id="conclusion">Conclusión</h2>
-<p>A partir de $N = 4$ y $N = 5$, la cuadratura gaussiana alcanza una excelente precisión y el resultado converge a <strong>317.3442</strong>.</p>
+<p>A partir de <span class="arithmatex">\(N = 4\)</span> y <span class="arithmatex">\(N = 5\)</span>, la cuadratura gaussiana alcanza una excelente precisión y el resultado converge a <strong>317.3442</strong>.</p>
 
 
 
@@ -462,6 +545,12 @@
     
     
       <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>
