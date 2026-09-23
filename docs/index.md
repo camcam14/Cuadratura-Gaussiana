@@ -1,29 +1,9 @@
-# Cuadratura Gaussiana
+# Integración Numérica mediante Cuadratura Gaussiana
 
-Implementación del método de integración numérica de Gauss-Legendre en Python.
+## Introducción al Problema
 
-## Descripción de la Función
+En el cálculo numérico, muchas integrales definidas no poseen una antiderivada elemental o resultan complejas de evaluar de forma analítica. En este trabajo se aborda la solución numérica de la siguiente integral en el intervalo $[0, 2]$:
 
-Se evalúa la integración de la siguiente función en el intervalo $[0, 2]$:
+$$ \int_{0}^{2} \left( x^6 - x^2 \sin(2x) \right) \, dx $$
 
-$$ f(x) = x^6 - x^2 \sin(2x) $$
-
----
-
-## Resultados Obtenidos según $N$
-
-Al evaluar con la cuadratura gaussiana cambiando el número de puntos $N$, se obtuvieron los siguientes valores:
-
-| Puntos ($N$) | Resultado de la Integral |
-| :---: | :---: |
-| 1 | 306.819934 |
-| 2 | 317.264152 |
-| 3 | 317.345390 |
-| 4 | 317.344227 |
-| **5** | **317.344247** |
-
----
-
-## Conclusión
-
-A partir de $N = 4$ y $N = 5$, la cuadratura gaussiana alcanza una excelente precisión y el resultado converge a **317.3442**.
+El propósito de esta documentación es implementar y analizar la convergencia del método de **Cuadratura Gaussiana de Gauss-Legendre**, evaluando la precisión obtenida al variar el número de puntos de integración $N$.
