@@ -1,0 +1,6 @@
+site_name: Tarea 2 - Cuadratura Gaussiana
+theme:
+  name: material
+
+nav:
+  - Inicio: index.md
