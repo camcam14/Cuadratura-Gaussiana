@@ -60,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-mkdocs" class="md-skip">
+        <a href="#cuadratura-gaussiana" class="md-skip">
           Skip to content
         </a>
       
@@ -252,10 +252,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
+  <a href="#descripcion-de-la-funcion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Commands
+        Descripción de la Función
       
     </span>
   </a>
@@ -263,10 +263,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
+  <a href="#resultados-obtenidos-segun-n" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Project layout
+        Resultados Obtenidos según $N$
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusión
       
     </span>
   </a>
@@ -308,10 +319,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
+  <a href="#descripcion-de-la-funcion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Commands
+        Descripción de la Función
       
     </span>
   </a>
@@ -319,10 +330,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
+  <a href="#resultados-obtenidos-segun-n" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Project layout
+        Resultados Obtenidos según $N$
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusión
       
     </span>
   </a>
@@ -346,21 +368,47 @@
 
 
 
-<h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands</h2>
-<ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
-</ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre>
+<h1 id="cuadratura-gaussiana">Cuadratura Gaussiana</h1>
+<p>Implementación del método de integración numérica de Gauss-Legendre en Python.</p>
+<h2 id="descripcion-de-la-funcion">Descripción de la Función</h2>
+<p>Se evalúa la integración de la siguiente función en el intervalo $[0, 2]$:</p>
+<p>$$ f(x) = x^6 - x^2 \sin(2x) $$</p>
+<hr />
+<h2 id="resultados-obtenidos-segun-n">Resultados Obtenidos según $N$</h2>
+<p>Al evaluar con la cuadratura gaussiana cambiando el número de puntos $N$, se obtuvieron los siguientes valores:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Puntos ($N$)</th>
+<th style="text-align: center;">Resultado de la Integral</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">306.819934</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">317.264152</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">317.345390</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">317.344227</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>5</strong></td>
+<td style="text-align: center;"><strong>317.344247</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="conclusion">Conclusión</h2>
+<p>A partir de $N = 4$ y $N = 5$, la cuadratura gaussiana alcanza una excelente precisión y el resultado converge a <strong>317.3442</strong>.</p>
 
 
 
