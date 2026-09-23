@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cuadratura-gaussiana" class="md-skip">
+        <a href="#integracion-numerica-mediante-cuadratura-gaussiana" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Cuadratura Gaussiana
+              Integración Numérica mediante Cuadratura Gaussiana
             
           </span>
         </div>
@@ -210,7 +210,7 @@
   <span class="md-ellipsis">
     
   
-    Cuadratura Gaussiana
+    Integración Numérica mediante Cuadratura Gaussiana
   
 
     
@@ -228,7 +228,7 @@
   <span class="md-ellipsis">
     
   
-    Cuadratura Gaussiana
+    Integración Numérica mediante Cuadratura Gaussiana
   
 
     
@@ -254,32 +254,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#descripcion-de-la-funcion" class="md-nav__link">
+  <a href="#introduccion-al-problema" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Descripción de la Función
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resultados-obtenidos-segun-n" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Resultados Obtenidos según \(N\)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Conclusión
+        Introducción al Problema
       
     </span>
   </a>
@@ -308,7 +286,7 @@
   <span class="md-ellipsis">
     
   
-    Explanation
+    Explicación del Método Numérico
   
 
     
@@ -362,7 +340,7 @@
   <span class="md-ellipsis">
     
   
-    Tutorials
+    Tutorial de Uso
   
 
     
@@ -402,32 +380,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#descripcion-de-la-funcion" class="md-nav__link">
+  <a href="#introduccion-al-problema" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Descripción de la Función
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resultados-obtenidos-segun-n" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Resultados Obtenidos según \(N\)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Conclusión
+        Introducción al Problema
       
     </span>
   </a>
@@ -451,47 +407,11 @@
 
 
 
-<h1 id="cuadratura-gaussiana">Cuadratura Gaussiana</h1>
-<p>Implementación del método de integración numérica de Gauss-Legendre en Python.</p>
-<h2 id="descripcion-de-la-funcion">Descripción de la Función</h2>
-<p>Se evalúa la integración de la siguiente función en el intervalo <span class="arithmatex">\([0, 2]\)</span>:</p>
-<div class="arithmatex">\[ f(x) = x^6 - x^2 \sin(2x) \]</div>
-<hr />
-<h2 id="resultados-obtenidos-segun-n">Resultados Obtenidos según <span class="arithmatex">\(N\)</span></h2>
-<p>Al evaluar con la cuadratura gaussiana cambiando el número de puntos <span class="arithmatex">\(N\)</span>, se obtuvieron los siguientes valores:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">Puntos (<span class="arithmatex">\(N\)</span>)</th>
-<th style="text-align: center;">Resultado de la Integral</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">306.819934</td>
-</tr>
-<tr>
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">317.264152</td>
-</tr>
-<tr>
-<td style="text-align: center;">3</td>
-<td style="text-align: center;">317.345390</td>
-</tr>
-<tr>
-<td style="text-align: center;">4</td>
-<td style="text-align: center;">317.344227</td>
-</tr>
-<tr>
-<td style="text-align: center;"><strong>5</strong></td>
-<td style="text-align: center;"><strong>317.344247</strong></td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="conclusion">Conclusión</h2>
-<p>A partir de <span class="arithmatex">\(N = 4\)</span> y <span class="arithmatex">\(N = 5\)</span>, la cuadratura gaussiana alcanza una excelente precisión y el resultado converge a <strong>317.3442</strong>.</p>
+<h1 id="integracion-numerica-mediante-cuadratura-gaussiana">Integración Numérica mediante Cuadratura Gaussiana</h1>
+<h2 id="introduccion-al-problema">Introducción al Problema</h2>
+<p>En el cálculo numérico, muchas integrales definidas no poseen una antiderivada elemental o resultan complejas de evaluar de forma analítica. En este trabajo se aborda la solución numérica de la siguiente integral en el intervalo <span class="arithmatex">\([0, 2]\)</span>:</p>
+<div class="arithmatex">\[ \int_{0}^{2} \left( x^6 - x^2 \sin(2x) \right) \, dx \]</div>
+<p>El propósito de esta documentación es implementar y analizar la convergencia del método de <strong>Cuadratura Gaussiana de Gauss-Legendre</strong>, evaluando la precisión obtenida al variar el número de puntos de integración <span class="arithmatex">\(N\)</span>.</p>
 
 
 

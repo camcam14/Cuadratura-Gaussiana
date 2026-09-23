@@ -21,7 +21,7 @@
     
     
       
-        <title>Tutorials - Tarea 2 - Cuadratura Gaussiana</title>
+        <title>Tutorial de Uso - Tarea 2 - Cuadratura Gaussiana</title>
       
     
     
@@ -61,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#tutorial-de-uso" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -93,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Tutorials
+              Tutorial de Uso
             
           </span>
         </div>
@@ -196,7 +201,7 @@
   <span class="md-ellipsis">
     
   
-    Cuadratura Gaussiana
+    Integración Numérica mediante Cuadratura Gaussiana
   
 
     
@@ -223,7 +228,7 @@
   <span class="md-ellipsis">
     
   
-    Explanation
+    Explicación del Método Numérico
   
 
     
@@ -276,6 +281,26 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial de Uso
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -284,7 +309,7 @@
   <span class="md-ellipsis">
     
   
-    Tutorials
+    Tutorial de Uso
   
 
     
@@ -293,6 +318,36 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#paso-1-importar-bibliotecas-e-implementar-el-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 1: Importar bibliotecas e implementar el script
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -315,6 +370,27 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#paso-1-importar-bibliotecas-e-implementar-el-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 1: Importar bibliotecas e implementar el script
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -331,9 +407,26 @@
 
 
 
-  <h1>Tutorials</h1>
-
-
+<h1 id="tutorial-de-uso">Tutorial de Uso</h1>
+<p>A continuación se muestra un ejemplo paso a paso de cómo utilizar el módulo en Python para integrar la función objetivo <span class="arithmatex">\(f(x) = x^6 - x^2 \sin(2x)\)</span> en el intervalo <span class="arithmatex">\([0, 2]\)</span>.</p>
+<h2 id="paso-1-importar-bibliotecas-e-implementar-el-script">Paso 1: Importar bibliotecas e implementar el script</h2>
+<p>```python
+import numpy as np</p>
+<p>def gaussxw(N):
+    x, w = np.polynomial.legendre.leggauss(N)
+    return x, w</p>
+<p>def gaussxwab(a, b, x, w):
+    return 0.5 * (b - a) * x + 0.5 * (b + a), 0.5 * (b - a) * w</p>
+<p>def func(x):
+    return x<strong>6 - (x</strong>2 * np.sin(2 * x))</p>
+<h1 id="parametros-del-problema">Parámetros del problema</h1>
+<p>a, b = 0.0, 2.0
+N = 5</p>
+<h1 id="mapeo-y-evaluacion">Mapeo y evaluación</h1>
+<p>x_nodes, weights = gaussxw(N)
+x_mapped, w_mapped = gaussxwab(a, b, x_nodes, weights)
+integral = np.sum(w_mapped * func(x_mapped))</p>
+<p>print(f"Resultado de la integral con N={N}: {integral}")</p>
 
 
 
