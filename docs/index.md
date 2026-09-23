@@ -1,17 +1,29 @@
-# Welcome to MkDocs
+# Cuadratura Gaussiana
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Implementación del método de integración numérica de Gauss-Legendre en Python.
 
-## Commands
+## Descripción de la Función
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+Se evalúa la integración de la siguiente función en el intervalo $[0, 2]$:
 
-## Project layout
+$$ f(x) = x^6 - x^2 \sin(2x) $$
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+---
+
+## Resultados Obtenidos según $N$
+
+Al evaluar con la cuadratura gaussiana cambiando el número de puntos $N$, se obtuvieron los siguientes valores:
+
+| Puntos ($N$) | Resultado de la Integral |
+| :---: | :---: |
+| 1 | 306.819934 |
+| 2 | 317.264152 |
+| 3 | 317.345390 |
+| 4 | 317.344227 |
+| **5** | **317.344247** |
+
+---
+
+## Conclusión
+
+A partir de $N = 4$ y $N = 5$, la cuadratura gaussiana alcanza una excelente precisión y el resultado converge a **317.3442**.
