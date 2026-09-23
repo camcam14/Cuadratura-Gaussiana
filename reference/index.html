@@ -23,7 +23,7 @@
     
     
       
-        <title>Reference - Tarea 2 - Cuadratura Gaussiana</title>
+        <title>Referencia de Funciones - Tarea 2 - Cuadratura Gaussiana</title>
       
     
     
@@ -63,6 +63,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#referencia-de-funciones" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -95,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Reference
+              Referencia de Funciones
             
           </span>
         </div>
@@ -251,6 +256,26 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Referencia de Funciones
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -259,7 +284,7 @@
   <span class="md-ellipsis">
     
   
-    Reference
+    Referencia de Funciones
   
 
     
@@ -268,6 +293,36 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gaussxwn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        gaussxw(N)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -317,6 +372,27 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gaussxwn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        gaussxw(N)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -333,9 +409,27 @@
 
 
 
-  <h1>Reference</h1>
-
-
+<h1 id="referencia-de-funciones">Referencia de Funciones</h1>
+<p>Documentación técnica detallada de las funciones utilizadas, con formato <em>docstrings</em> (PEP 257)[cite: 6].</p>
+<hr />
+<h3 id="gaussxwn"><code>gaussxw(N)</code></h3>
+<p>Calcula los puntos de integración y pesos para la Cuadratura de Gauss-Legendre en el intervalo <span class="arithmatex">\([-1, 1]\)</span>.</p>
+<p><strong>Argumentos:</strong>
+* <code>N</code> (<em>int</em>): Número de puntos o nodos de integración.</p>
+<p><strong>Retorna:</strong>
+* <code>x</code> (<em>ndarray</em>): Arreglo unidimensional con los nodos de integración <span class="arithmatex">\(x_i\)</span>.
+* <code>w</code> (<em>ndarray</em>): Arreglo unidimensional con los pesos asociados <span class="arithmatex">\(w_i\)</span>.</p>
+<p><strong>Ejemplo de uso:</strong>
+```python</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>x, w = gaussxw(3)
+print(x)
+[-0.77459667  0.          0.77459667]</p>
+</blockquote>
+</blockquote>
+</blockquote>
 
 
 
