@@ -4,32 +4,28 @@ Esta sección contiene la documentación técnica de las funciones desarrolladas
 
 ---
 
-## `gaussxw`
+## Funciones del Módulo
 
-Calcula los nodos de integración $x_i$ y sus respectivos pesos $w_i$ en el intervalo canónico $[-1, 1]$ para un grado $N$ dado.
+### `gaussxw(N)`
+
+Calcula los nodos $x_i$ y los pesos $w_i$ para la Cuadratura de Gauss-Legendre en el intervalo canónico $[-1, 1]$ apoyándose en la rutina `numpy.polynomial.legendre.leggauss`.
+
+#### Parámetros
+
+| Nombre | Tipo | Descripción |
+| :--- | :--- | :--- |
+| **`N`** | `int` | Número de puntos o nodos de integración ($N \ge 1$). |
+
+#### Retorno
+
+* **`x`** (`numpy.ndarray`): Arreglo unidimensional con los $N$ nodos en $[-1, 1]$.
+* **`w`** (`numpy.ndarray`): Arreglo unidimensional con los $N$ pesos correspondientes.
+
+#### Ejemplo de uso
 
 ```python
-def gaussxw(N):
-    """
-    Calcula nodos y pesos para la Cuadratura de Gauss-Legendre.
-
-    Parameters
-    ----------
-    N : int
-        Número de puntos de integración (nodos).
-
-    Returns
-    -------
-    x : numpy.ndarray
-        Nodos de integración en el intervalo [-1, 1].
-    w : numpy.ndarray
-        Pesos asociados a cada nodo.
-
-    Examples
-    --------
-    >>> x, w = gaussxw(2)
-    >>> x
-    array([-0.57735027,  0.57735027])
-    >>> w
-    array([1., 1.])
-    """
+>>> x, w = gaussxw(3)
+>>> print(x)
+[-0.77459667  0.          0.77459667]
+>>> print(w)
+[0.55555556 0.88888889 0.55555556]

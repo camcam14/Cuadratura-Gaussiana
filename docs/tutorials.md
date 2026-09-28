@@ -1,29 +1,59 @@
-# Tutorial de Uso
+# Tutorial: Resolución de la Integral Definida
 
-A continuación se muestra un ejemplo paso a paso de cómo utilizar el módulo en Python para integrar la función objetivo $f(x) = x^6 - x^2 \sin(2x)$ en el intervalo $[0, 2]$.
+Utilizaremos el método mencionado para resolver la integral en el intervalo $[0, 2]$:
 
-## Paso 1: Importar bibliotecas e implementar el script
+$$I = \int_{0}^{2} \left( x^6 - x^2 \sin(2x) \right) dx$$
+
+---
+
+## 1. Declaración del Script y Funciones
+
+El archivo fuente `cruadaturagaussiana.py` define la función integrando $f(x)$, las rutinas de cálculo de nodos/pesos y la rutina de cambio de intervalo:
 
 ```python
 import numpy as np
 
+def f(x):
+    """Función a integrar: f(x) = x^6 - x^2 * sin(2x)"""
+    return x**6 - (x**2) * np.sin(2 * x)
+
 def gaussxw(N):
+    """Calcula nodos y pesos de Gauss-Legendre en [-1, 1]."""
     x, w = np.polynomial.legendre.leggauss(N)
     return x, w
 
 def gaussxwab(a, b, x, w):
-    return 0.5 * (b - a) * x + 0.5 * (b + a), 0.5 * (b - a) * w
+    """Transforma nodos y pesos del intervalo [-1, 1] al intervalo [a, b]."""
+     return 0.5 * (b - a) * x + 0.5 * (b + a), 0.5 * (b - a) * w
 
-def func(x):
-    return x**6 - (x**2 * np.sin(2 * x))
+n2 = gaussxw(2)
 
-# Parámetros del problema
-a, b = 0.0, 2.0
-N = 5
+n3 = gaussxw(3)
 
-# Mapeo y evaluación
-x_nodes, weights = gaussxw(N)
-x_mapped, w_mapped = gaussxwab(a, b, x_nodes, weights)
-integral = np.sum(w_mapped * func(x_mapped))
+n4 = gaussxw(4)
 
-print(f"Resultado de la integral con N={N}: {integral}")
+n5 = gaussxw(5)
+
+n6 = gaussxw(6)
+
+n2_r = gaussxwab(1.0, 3.0, n2[0], n2[1])
+
+n3_r = gaussxwab(1.0, 3.0, n3[0], n3[1])
+
+n4_r = gaussxwab(1.0, 3.0, n4[0], n4[1])
+
+n5_r = gaussxwab(1.0, 3.0, n5[0], n5[1])
+
+n6_r = gaussxwab(1.0, 3.0, n6[0], n6[1])
+
+def func(varInd):
+    return varInd ** 6 - (varInd ** 2 * np.sin(2 * varInd))
+
+resultN2 = np.sum(n2_r[1] * func(n2_r[0]))
+resultN3 = np.sum(n3_r[1] * func(n3_r[0]))
+resultN4 = np.sum(n4_r[1] * func(n4_r[0]))
+resultN5 = np.sum(n5_r[1] * func(n5_r[0]))
+resultN6 = np.sum(n6_r[1] * func(n6_r[0]))
+
+
+print(resultN2, resultN3, resultN4, resultN5, resultN6)

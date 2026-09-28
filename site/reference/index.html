@@ -310,10 +310,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#gaussxwn" class="md-nav__link">
+  <a href="#gaussxw" class="md-nav__link">
     <span class="md-ellipsis">
       
-        gaussxw(N)
+        gaussxw
       
     </span>
   </a>
@@ -382,10 +382,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#gaussxwn" class="md-nav__link">
+  <a href="#gaussxw" class="md-nav__link">
     <span class="md-ellipsis">
       
-        gaussxw(N)
+        gaussxw
       
     </span>
   </a>
@@ -410,26 +410,35 @@
 
 
 <h1 id="referencia-de-funciones">Referencia de Funciones</h1>
-<p>Documentación técnica detallada de las funciones utilizadas, con formato <em>docstrings</em> (PEP 257)[cite: 6].</p>
+<p>Esta sección contiene la documentación técnica de las funciones desarrolladas en el módulo de integración por <strong>Cuadratura de Gauss-Legendre</strong>.</p>
 <hr />
-<h3 id="gaussxwn"><code>gaussxw(N)</code></h3>
-<p>Calcula los puntos de integración y pesos para la Cuadratura de Gauss-Legendre en el intervalo <span class="arithmatex">\([-1, 1]\)</span>.</p>
-<p><strong>Argumentos:</strong>
-* <code>N</code> (<em>int</em>): Número de puntos o nodos de integración.</p>
-<p><strong>Retorna:</strong>
-* <code>x</code> (<em>ndarray</em>): Arreglo unidimensional con los nodos de integración <span class="arithmatex">\(x_i\)</span>.
-* <code>w</code> (<em>ndarray</em>): Arreglo unidimensional con los pesos asociados <span class="arithmatex">\(w_i\)</span>.</p>
-<p><strong>Ejemplo de uso:</strong>
-```python</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>x, w = gaussxw(3)
-print(x)
-[-0.77459667  0.          0.77459667]</p>
-</blockquote>
-</blockquote>
-</blockquote>
+<h2 id="gaussxw"><code>gaussxw</code></h2>
+<p>Calcula los nodos de integración <span class="arithmatex">\(x_i\)</span> y sus respectivos pesos <span class="arithmatex">\(w_i\)</span> en el intervalo canónico <span class="arithmatex">\([-1, 1]\)</span> para un grado <span class="arithmatex">\(N\)</span> dado.</p>
+<p>```python
+def gaussxw(N):
+    """
+    Calcula nodos y pesos para la Cuadratura de Gauss-Legendre.</p>
+<pre><code>Parameters
+----------
+N : int
+    Número de puntos de integración (nodos).
+
+Returns
+-------
+x : numpy.ndarray
+    Nodos de integración en el intervalo [-1, 1].
+w : numpy.ndarray
+    Pesos asociados a cada nodo.
+
+Examples
+--------
+&gt;&gt;&gt; x, w = gaussxw(2)
+&gt;&gt;&gt; x
+array([-0.57735027,  0.57735027])
+&gt;&gt;&gt; w
+array([1., 1.])
+"""
+</code></pre>
 
 
 
