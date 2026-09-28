@@ -26,46 +26,6 @@ Esto permite observar cómo mejora la precisión al aumentar el número de punto
 
 ---
 
-## Fundamento teórico
-
-La cuadratura de Gauss-Legendre aproxima una integral de la forma
-
-\[
-\int_{-1}^{1} f(x)\,dx
-\]
-
-mediante
-
-\[
-\int_{-1}^{1} f(x)\,dx
-\approx
-\sum_{i=1}^{N} w_i f(x_i)
-\]
-
-donde:
-
-- \(x_i\) son los nodos de Gauss-Legendre.
-- \(w_i\) son los pesos asociados.
-- \(N\) es el número de puntos utilizados.
-
-Como la integral de este problema está definida en el intervalo \([1,3]\), es necesario transformar los nodos y pesos mediante
-
-\[
-x_i'=\frac{b-a}{2}x_i+\frac{b+a}{2}
-\]
-
-\[
-w_i'=\frac{b-a}{2}w_i
-\]
-
-con
-
-\[
-a=1,\qquad b=3.
-\]
-
----
-
 ## Implementación
 
 ### 1. Importación de NumPy
@@ -217,13 +177,12 @@ Al ejecutar el programa se obtienen aproximaciones de la integral para cada valo
 
 | Número de puntos (N) | Aproximación |
 |---------------------|-------------|
-| 2 | `resultado N=2` |
-| 3 | `resultado N=3` |
-| 4 | `resultado N=4` |
-| 5 | `resultado N=5` |
-| 6 | `resultado N=6` |
+| 2 | `resultN2` |
+| 3 | `resultN3` |
+| 4 | `resultN4` |
+| 5 | `resultN5` |
+| 6 | `resultN6` |
 
-> Sustituir los valores anteriores por los resultados obtenidos al ejecutar el código.
 
 ---
 
