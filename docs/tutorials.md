@@ -1,7 +1,5 @@
 # Tutorial: Integración Numérica con Cuadratura Gaussiana
 
-E
-
 $$I = \int_{1}^{3} \left( x^6 - x^2 \sin(2x) \right) dx$$
 
 ---
@@ -28,12 +26,12 @@ Paso 1: Importar y Definir Funciones
         return x**6 - (x**2) * np.sin(2 * x)
 
     def gaussxw(N):
-        """Devuelve los nodos y pesos de Gauss-Legendre en [-1, 1]."""
+        Devuelve los nodos y pesos de Gauss-Legendre en [-1, 1].
         x, w = np.polynomial.legendre.leggauss(N)
         return x, w
 
     def gaussxwab(a, b, x, w):
-        """Mapea los nodos y pesos del intervalo [-1, 1] al intervalo [a, b]."""
+        Mapea los nodos y pesos del intervalo [-1, 1] al intervalo [a, b].
         return 0.5 * (b - a) * x + 0.5 * (b + a), 0.5 * (b - a) * w
     ```
 
