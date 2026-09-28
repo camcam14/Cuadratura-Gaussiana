@@ -23,7 +23,7 @@
     
     
       
-        <title>Explanation - Tarea 2 - Cuadratura Gaussiana</title>
+        <title>Explicación del Método Numérico - Tarea 2 - Cuadratura Gaussiana</title>
       
     
     
@@ -63,6 +63,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#explicacion-del-metodo-numerico" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -95,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Explanation
+              Explicación del Método Numérico
             
           </span>
         </div>
@@ -198,7 +203,7 @@
   <span class="md-ellipsis">
     
   
-    Cuadratura Gaussiana
+    Integración Numérica mediante Cuadratura Gaussiana
   
 
     
@@ -224,6 +229,26 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Explicación del Método Numérico
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -232,7 +257,7 @@
   <span class="md-ellipsis">
     
   
-    Explanation
+    Explicación del Método Numérico
   
 
     
@@ -241,6 +266,64 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cuadratura-de-gauss-legendre" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cuadratura de Gauss-Legendre
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cuadratura de Gauss-Legendre">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#formulacion-matematica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formulación Matemática
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cambio-de-intervalo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cambio de Intervalo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -287,7 +370,7 @@
   <span class="md-ellipsis">
     
   
-    Tutorials
+    Tutorial de Uso
   
 
     
@@ -317,6 +400,55 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cuadratura-de-gauss-legendre" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cuadratura de Gauss-Legendre
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cuadratura de Gauss-Legendre">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#formulacion-matematica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formulación Matemática
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cambio-de-intervalo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cambio de Intervalo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -333,9 +465,20 @@
 
 
 
-  <h1>Explanation</h1>
-
-
+<h1 id="explicacion-del-metodo-numerico">Explicación del Método Numérico</h1>
+<h2 id="cuadratura-de-gauss-legendre">Cuadratura de Gauss-Legendre</h2>
+<p>A diferencia de los métodos de Newton-Cotes (como la regla del trapecio o de Simpson), que utilizan puntos equiespaciados, la <strong>Cuadratura Gaussiana</strong> selecciona óptimamente tanto las posiciones de los nodos <span class="arithmatex">\(x_i\)</span> como los pesos <span class="arithmatex">\(w_i\)</span> para maximizar la precisión de la aproximación.</p>
+<p>Una regla de <span class="arithmatex">\(N\)</span> puntos integra exactamente polinomios de grado hasta <span class="arithmatex">\(2N - 1\)</span>.</p>
+<h3 id="formulacion-matematica">Formulación Matemática</h3>
+<p>En el intervalo estándar <span class="arithmatex">\([-1, 1]\)</span>, la integral se aproxima como:</p>
+<div class="arithmatex">\[ \int_{-1}^{1} f(x) \, dx \approx \sum_{i=1}^{N} w_i f(x_i) \]</div>
+<p>Donde los <span class="arithmatex">\(x_i\)</span> son las raíces del polinomio de Legendre de grado <span class="arithmatex">\(N\)</span>, <span class="arithmatex">\(P_N(x)\)</span>, y los pesos <span class="arithmatex">\(w_i\)</span> se obtienen a partir de sus derivadas.</p>
+<h3 id="cambio-de-intervalo">Cambio de Intervalo</h3>
+<p>Para integrar sobre un intervalo arbitrario <span class="arithmatex">\([a, b]\)</span>, se realiza la transformación lineal:</p>
+<div class="arithmatex">\[ x = \frac{b - a}{2} x' + \frac{b + a}{2} \]</div>
+<div class="arithmatex">\[ dx = \frac{b - a}{2} dx' \]</div>
+<p>De este modo, la fórmula de integración resulta:</p>
+<div class="arithmatex">\[ \int_{a}^{b} f(x) \, dx \approx \frac{b - a}{2} \sum_{i=1}^{N} w_i f\left( \frac{b - a}{2} x_i + \frac{b + a}{2} \right) \]</div>
 
 
 
