@@ -1,92 +1,232 @@
-# Tutorial: Integración Numérica con Cuadratura Gaussiana
+# Cuadratura de Gauss-Legendre
 
-$$I = \int_{1}^{3} \left( x^6 - x^2 \sin(2x) \right) dx$$
+## Descripción
 
----
+Este programa utiliza la **cuadratura de Gauss-Legendre** para aproximar la integral definida de la función
 
-## Concepto General
+\[
+f(x)=x^6-x^2\sin(2x)
+\]
 
-A diferencia de los métodos de Newton-Cotes (Trapecios o Simpson) que evalúan la función en puntos equiespaciados, la **Cuadratura de Gauss-Legendre** selecciona estratégicamente las posiciones de los nodos $x_i$ y sus pesos $w_i$ para lograr la máxima precisión posible con el menor número de evaluaciones.
+en el intervalo
 
-$$I \approx \sum_{i=1}^{N} w_i \, f(x_i)$$
+\[
+[1,3].
+\]
 
----
+Se calcula la aproximación utilizando diferentes cantidades de puntos de integración:
 
-## Guía Paso a Paso
+- N = 2
+- N = 3
+- N = 4
+- N = 5
+- N = 6
 
-Paso 1: Importar y Definir Funciones
-
-    Definimos la función integrando $f(x)$, las funciones para obtener nodos y pesos en el intervalo canónico $[-1, 1]$, y la transformación afín al intervalo $[a, b]$.
-
-    ```python
-    import numpy as np
-
-    def f(x):
-        """Función objetivo f(x) = x^6 - x^2 * sin(2x)"""
-        return x**6 - (x**2) * np.sin(2 * x)
-
-    def gaussxw(N):
-        Devuelve los nodos y pesos de Gauss-Legendre en [-1, 1].
-        x, w = np.polynomial.legendre.leggauss(N)
-        return x, w
-
-    def gaussxwab(a, b, x, w):
-        Mapea los nodos y pesos del intervalo [-1, 1] al intervalo [a, b].
-        return 0.5 * (b - a) * x + 0.5 * (b + a), 0.5 * (b - a) * w
-    ```
-
-Paso 2: Evaluar la Integral para N = 3 y N = 4
-
-    Calculamos los nodos y pesos transformados para el intervalo $[0, 2]$ y realizamos el producto escalar entre los pesos y los valores de la función evaluada en los nodos.
-
-    ```python
-    # Definición de límites del intervalo
-    a, b = 1.0, 3.0
-
-    # Evaluación con N = 3 nodos
-    x3_std, w3_std = gaussxw(3)
-    x3, w3 = gaussxwab(a, b, x3_std, w3_std)
-    integral_3 = np.sum(w3 * f(x3))
-
-    # Evaluación con N = 4 nodos
-    x4_std, w4_std = gaussxw(4)
-    x4, w4 = gaussxwab(a, b, x4_std, w4_std)
-    integral_4 = np.sum(w4 * f(x4))
-
-    print(f"I(N=3) = {integral_3:.8f}")
-    print(f"I(N=4) = {integral_4:.8f}")
-    ```
-
-Paso 3: Análisis de Error Relativo
-
-    Tomando como referencia de alta precisión el cálculo con $N = 100$ nodos, calculamos el porcentaje de error relativo.
-
-    ```python
-    # Valor de referencia preciso (N = 100)
-    x_ref_s, w_ref_s = gaussxw(100)
-    x_ref, w_ref = gaussxwab(a, b, x_ref_s, w_ref_s)
-    I_ref = np.sum(w_ref * f(x_ref))
-
-    # Error relativo porcentual
-    err_3 = abs((integral_3 - I_ref) / I_ref) * 100
-    err_4 = abs((integral_4 - I_ref) / I_ref) * 100
-
-    print(f"Error relativo N=3: {err_3:.5f}%")
-    print(f"Error relativo N=4: {err_4:.6f}%")
-    ```
+Esto permite observar cómo mejora la precisión al aumentar el número de puntos.
 
 ---
 
-## Resultados y Convergencia
+## Fundamento teórico
 
-A continuación se muestra la comparación de los resultados numéricos obtenidos según el número de nodos empleados:
+La cuadratura de Gauss-Legendre aproxima una integral de la forma
 
-| Nodos ($N$) | Valor Aproximado | Error Relativo (%) | Estado |
-| :---: | :---: | :---: | :---: |
-| **3** | $19.41910244$ | $0.041772\%$ | Aceptable |
-| **4** | $19.42718902$ | $0.000153\%$ | Alta Precisión |
-| **100 (Ref)** | $19.42721867$ | $0.000000\%$ | Referencia |
+\[
+\int_{-1}^{1} f(x)\,dx
+\]
 
-!!! check "Conclusión del Tutorial"
-    Como se observa en la tabla, al pasar de $N = 3$ a $N = 4$ el error relativo cae bruscamente de $0.04\%$ a solo $0.00015\%$. Esto demuestra la altísima eficiencia de la Cuadratura de Gauss-Legendre para integrar funciones continuas y suaves en un intervalo acotado.
+mediante
 
+\[
+\int_{-1}^{1} f(x)\,dx
+\approx
+\sum_{i=1}^{N} w_i f(x_i)
+\]
+
+donde:
+
+- \(x_i\) son los nodos de Gauss-Legendre.
+- \(w_i\) son los pesos asociados.
+- \(N\) es el número de puntos utilizados.
+
+Como la integral de este problema está definida en el intervalo \([1,3]\), es necesario transformar los nodos y pesos mediante
+
+\[
+x_i'=\frac{b-a}{2}x_i+\frac{b+a}{2}
+\]
+
+\[
+w_i'=\frac{b-a}{2}w_i
+\]
+
+con
+
+\[
+a=1,\qquad b=3.
+\]
+
+---
+
+## Implementación
+
+### 1. Importación de NumPy
+
+```python
+import numpy as np
+```
+
+---
+
+### 2. Función para obtener nodos y pesos de Gauss-Legendre
+
+```python
+def gaussxw(N):
+    x, w = np.polynomial.legendre.leggauss(N)
+    return x, w
+```
+
+Esta función devuelve:
+
+- `x`: nodos de integración.
+- `w`: pesos correspondientes.
+
+---
+
+### 3. Transformación al intervalo [1,3]
+
+```python
+def gaussxwab(a, b, x, w):
+    return (
+        0.5 * (b - a) * x + 0.5 * (b + a),
+        0.5 * (b - a) * w
+    )
+```
+
+La cuadratura estándar trabaja en \([-1,1]\), por lo que esta función transforma los nodos y pesos al intervalo deseado.
+
+---
+
+### 4. Obtención de nodos y pesos para distintos valores de N
+
+```python
+n2 = gaussxw(2)
+n3 = gaussxw(3)
+n4 = gaussxw(4)
+n5 = gaussxw(5)
+n6 = gaussxw(6)
+```
+
+---
+
+### 5. Transformación de los nodos y pesos al intervalo [1,3]
+
+```python
+n2_r = gaussxwab(1.0, 3.0, n2[0], n2[1])
+n3_r = gaussxwab(1.0, 3.0, n3[0], n3[1])
+n4_r = gaussxwab(1.0, 3.0, n4[0], n4[1])
+n5_r = gaussxwab(1.0, 3.0, n5[0], n5[1])
+n6_r = gaussxwab(1.0, 3.0, n6[0], n6[1])
+```
+
+---
+
+### 6. Definición de la función a integrar
+
+```python
+def func(varInd):
+    return varInd**6 - (varInd**2 * np.sin(2 * varInd))
+```
+
+Corresponde a
+
+\[
+f(x)=x^6-x^2\sin(2x).
+\]
+
+---
+
+### 7. Aplicación de la cuadratura de Gauss
+
+```python
+resultN2 = np.sum(n2_r[1] * func(n2_r[0]))
+resultN3 = np.sum(n3_r[1] * func(n3_r[0]))
+resultN4 = np.sum(n4_r[1] * func(n4_r[0]))
+resultN5 = np.sum(n5_r[1] * func(n5_r[0]))
+resultN6 = np.sum(n6_r[1] * func(n6_r[0]))
+```
+
+Cada resultado corresponde a
+
+\[
+\sum_{i=1}^{N} w_i f(x_i).
+\]
+
+---
+
+### 8. Impresión de resultados
+
+```python
+print(resultN2, resultN3, resultN4, resultN5, resultN6)
+```
+
+---
+
+## Código completo
+
+```python
+import numpy as np
+
+def gaussxw(N):
+    x, w = np.polynomial.legendre.leggauss(N)
+    return x, w
+
+def gaussxwab(a, b, x, w):
+    return (
+        0.5 * (b - a) * x + 0.5 * (b + a),
+        0.5 * (b - a) * w
+    )
+
+n2 = gaussxw(2)
+n3 = gaussxw(3)
+n4 = gaussxw(4)
+n5 = gaussxw(5)
+n6 = gaussxw(6)
+
+n2_r = gaussxwab(1.0, 3.0, n2[0], n2[1])
+n3_r = gaussxwab(1.0, 3.0, n3[0], n3[1])
+n4_r = gaussxwab(1.0, 3.0, n4[0], n4[1])
+n5_r = gaussxwab(1.0, 3.0, n5[0], n5[1])
+n6_r = gaussxwab(1.0, 3.0, n6[0], n6[1])
+
+def func(varInd):
+    return varInd**6 - (varInd**2 * np.sin(2 * varInd))
+
+resultN2 = np.sum(n2_r[1] * func(n2_r[0]))
+resultN3 = np.sum(n3_r[1] * func(n3_r[0]))
+resultN4 = np.sum(n4_r[1] * func(n4_r[0]))
+resultN5 = np.sum(n5_r[1] * func(n5_r[0]))
+resultN6 = np.sum(n6_r[1] * func(n6_r[0]))
+
+print(resultN2, resultN3, resultN4, resultN5, resultN6)
+```
+
+---
+
+## Resultados
+
+Al ejecutar el programa se obtienen aproximaciones de la integral para cada valor de \(N\):
+
+| Número de puntos (N) | Aproximación |
+|---------------------|-------------|
+| 2 | `resultado N=2` |
+| 3 | `resultado N=3` |
+| 4 | `resultado N=4` |
+| 5 | `resultado N=5` |
+| 6 | `resultado N=6` |
+
+> Sustituir los valores anteriores por los resultados obtenidos al ejecutar el código.
+
+---
+
+## Conclusión
+
+La cuadratura de Gauss-Legendre permite aproximar integrales definidas con alta precisión utilizando un número reducido de puntos de evaluación. Al incrementar el número de nodos \(N\), la aproximación converge hacia el valor exacto de la integral, reduciendo el error numérico.
