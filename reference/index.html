@@ -23,7 +23,7 @@
     
     
       
-        <title>Referencia de Funciones - Tarea 2 - Cuadratura Gaussiana</title>
+        <title>Reference - Tarea 2 - Cuadratura Gaussiana</title>
       
     
     
@@ -63,11 +63,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#referencia-de-funciones" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -100,7 +95,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Referencia de Funciones
+              Reference
             
           </span>
         </div>
@@ -256,26 +251,6 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Referencia de Funciones
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -284,7 +259,7 @@
   <span class="md-ellipsis">
     
   
-    Referencia de Funciones
+    Reference
   
 
     
@@ -293,92 +268,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#funciones-del-modulo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Funciones del Módulo
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Funciones del Módulo">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#gaussxwn" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        gaussxw(N)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="gaussxw(N)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#parametros" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Parámetros
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#retorno" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Retorno
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ejemplo-de-uso" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ejemplo de uso
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -428,83 +317,6 @@
   
   
   
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#funciones-del-modulo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Funciones del Módulo
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Funciones del Módulo">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#gaussxwn" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        gaussxw(N)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="gaussxw(N)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#parametros" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Parámetros
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#retorno" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Retorno
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ejemplo-de-uso" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ejemplo de uso
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -521,47 +333,96 @@
 
 
 
-<h1 id="referencia-de-funciones">Referencia de Funciones</h1>
-<p>Esta sección contiene la documentación técnica de las funciones desarrolladas en el módulo de integración por <strong>Cuadratura de Gauss-Legendre</strong>.</p>
-<hr />
-<h2 id="funciones-del-modulo">Funciones del Módulo</h2>
-<h3 id="gaussxwn"><code>gaussxw(N)</code></h3>
-<p>Calcula los nodos <span class="arithmatex">\(x_i\)</span> y los pesos <span class="arithmatex">\(w_i\)</span> para la Cuadratura de Gauss-Legendre en el intervalo canónico <span class="arithmatex">\([-1, 1]\)</span> apoyándose en la rutina <code>numpy.polynomial.legendre.leggauss</code>.</p>
-<h4 id="parametros">Parámetros</h4>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Nombre</th>
-<th style="text-align: left;">Tipo</th>
-<th style="text-align: left;">Descripción</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong><code>N</code></strong></td>
-<td style="text-align: left;"><code>int</code></td>
-<td style="text-align: left;">Número de puntos o nodos de integración (<span class="arithmatex">\(N \ge 1\)</span>).</td>
-</tr>
-</tbody>
-</table>
-<h4 id="retorno">Retorno</h4>
-<ul>
-<li><strong><code>x</code></strong> (<code>numpy.ndarray</code>): Arreglo unidimensional con los <span class="arithmatex">\(N\)</span> nodos en <span class="arithmatex">\([-1, 1]\)</span>.</li>
-<li><strong><code>w</code></strong> (<code>numpy.ndarray</code>): Arreglo unidimensional con los <span class="arithmatex">\(N\)</span> pesos correspondientes.</li>
-</ul>
-<h4 id="ejemplo-de-uso">Ejemplo de uso</h4>
-<p>```python</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>x, w = gaussxw(3)
-print(x)
-[-0.77459667  0.          0.77459667]
-print(w)
-[0.55555556 0.88888889 0.55555556]</p>
-</blockquote>
-</blockquote>
-</blockquote>
+  <h1>Reference</h1>
+
+<p>import numpy as np</p>
+<p>def gaussxw(N):
+    """
+    Obtiene los nodos y pesos de la cuadratura de Gauss-Legendre.</p>
+<pre><code>Parameters
+----------
+N : int
+    Número de puntos de integración.
+
+Returns
+-------
+tuple[numpy.ndarray, numpy.ndarray]
+    Una tupla que contiene:
+    - x: nodos de Gauss-Legendre.
+    - w: pesos asociados a cada nodo.
+
+Examples
+--------
+&gt;&gt;&gt; x, w = gaussxw(3)
+&gt;&gt;&gt; len(x)
+3
+&gt;&gt;&gt; len(w)
+3
+"""
+x, w = np.polynomial.legendre.leggauss(N)
+return x, w
+</code></pre>
+<p>def gaussxwab(a, b, x, w):
+    """
+    Transforma nodos y pesos de Gauss-Legendre desde el intervalo
+    [-1, 1] hacia un intervalo arbitrario [a, b].</p>
+<pre><code>Parameters
+----------
+a : float
+    Límite inferior del intervalo.
+b : float
+    Límite superior del intervalo.
+x : numpy.ndarray
+    Nodos en el intervalo [-1, 1].
+w : numpy.ndarray
+    Pesos asociados a los nodos.
+
+Returns
+-------
+tuple[numpy.ndarray, numpy.ndarray]
+    Una tupla que contiene:
+    - x': nodos transformados al intervalo [a, b].
+    - w': pesos transformados al intervalo [a, b].
+
+Examples
+--------
+&gt;&gt;&gt; x, w = gaussxw(2)
+&gt;&gt;&gt; x_new, w_new = gaussxwab(1.0, 3.0, x, w)
+&gt;&gt;&gt; len(x_new)
+2
+"""
+return (
+    0.5 * (b - a) * x + 0.5 * (b + a),
+    0.5 * (b - a) * w
+)
+</code></pre>
+<p>def func(varInd):
+    """
+    Evalúa la función que será integrada mediante cuadratura de Gauss.</p>
+<pre><code>La función está definida como:
+
+    f(x) = x^6 - x^2 sin(2x)
+
+Parameters
+----------
+varInd : float or numpy.ndarray
+    Punto o conjunto de puntos donde se evaluará la función.
+
+Returns
+-------
+float or numpy.ndarray
+    Valor de la función evaluada.
+
+Examples
+--------
+&gt;&gt;&gt; func(1)
+1 - sin(2)
+
+&gt;&gt;&gt; func(np.array([1, 2]))
+array([...])
+"""
+return varInd**6 - (varInd**2 * np.sin(2 * varInd))
+</code></pre>
 
 
 
