@@ -8,7 +8,7 @@ plugins:
   - mkdocstrings:
       handlers:
         python:
-          paths: [site]
+          paths: [.]
 
 markdown_extensions:
   - pymdownx.arithmatex:
