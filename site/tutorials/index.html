@@ -346,17 +346,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#fundamento-teorico" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Fundamento teórico
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#implementacion" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -540,17 +529,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#fundamento-teorico" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Fundamento teórico
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#implementacion" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -725,35 +703,6 @@ f(x)=x^6-x^2\sin(2x)
 </ul>
 <p>Esto permite observar cómo mejora la precisión al aumentar el número de puntos.</p>
 <hr />
-<h2 id="fundamento-teorico">Fundamento teórico</h2>
-<p>La cuadratura de Gauss-Legendre aproxima una integral de la forma</p>
-<div class="arithmatex">\[
-\int_{-1}^{1} f(x)\,dx
-\]</div>
-<p>mediante</p>
-<div class="arithmatex">\[
-\int_{-1}^{1} f(x)\,dx
-\approx
-\sum_{i=1}^{N} w_i f(x_i)
-\]</div>
-<p>donde:</p>
-<ul>
-<li><span class="arithmatex">\(x_i\)</span> son los nodos de Gauss-Legendre.</li>
-<li><span class="arithmatex">\(w_i\)</span> son los pesos asociados.</li>
-<li><span class="arithmatex">\(N\)</span> es el número de puntos utilizados.</li>
-</ul>
-<p>Como la integral de este problema está definida en el intervalo <span class="arithmatex">\([1,3]\)</span>, es necesario transformar los nodos y pesos mediante</p>
-<div class="arithmatex">\[
-x_i'=\frac{b-a}{2}x_i+\frac{b+a}{2}
-\]</div>
-<div class="arithmatex">\[
-w_i'=\frac{b-a}{2}w_i
-\]</div>
-<p>con</p>
-<div class="arithmatex">\[
-a=1,\qquad b=3.
-\]</div>
-<hr />
 <h2 id="implementacion">Implementación</h2>
 <h3 id="1-importacion-de-numpy">1. Importación de NumPy</h3>
 <pre><code class="language-python">import numpy as np
@@ -869,29 +818,26 @@ print(resultN2, resultN3, resultN4, resultN5, resultN6)
 <tbody>
 <tr>
 <td>2</td>
-<td><code>resultado N=2</code></td>
+<td><code>resultN2</code></td>
 </tr>
 <tr>
 <td>3</td>
-<td><code>resultado N=3</code></td>
+<td><code>resultN3</code></td>
 </tr>
 <tr>
 <td>4</td>
-<td><code>resultado N=4</code></td>
+<td><code>resultN4</code></td>
 </tr>
 <tr>
 <td>5</td>
-<td><code>resultado N=5</code></td>
+<td><code>resultN5</code></td>
 </tr>
 <tr>
 <td>6</td>
-<td><code>resultado N=6</code></td>
+<td><code>resultN6</code></td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p>Sustituir los valores anteriores por los resultados obtenidos al ejecutar el código.</p>
-</blockquote>
 <hr />
 <h2 id="conclusion">Conclusión</h2>
 <p>La cuadratura de Gauss-Legendre permite aproximar integrales definidas con alta precisión utilizando un número reducido de puntos de evaluación. Al incrementar el número de nodos <span class="arithmatex">\(N\)</span>, la aproximación converge hacia el valor exacto de la integral, reduciendo el error numérico.</p>
