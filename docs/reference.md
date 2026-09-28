@@ -1,31 +1,93 @@
-# Referencia de Funciones
+import numpy as np
 
-Esta sección contiene la documentación técnica de las funciones desarrolladas en el módulo de integración por **Cuadratura de Gauss-Legendre**.
+def gaussxw(N):
+    """
+    Obtiene los nodos y pesos de la cuadratura de Gauss-Legendre.
 
----
+    Parameters
+    ----------
+    N : int
+        Número de puntos de integración.
 
-## Funciones del Módulo
+    Returns
+    -------
+    tuple[numpy.ndarray, numpy.ndarray]
+        Una tupla que contiene:
+        - x: nodos de Gauss-Legendre.
+        - w: pesos asociados a cada nodo.
 
-### `gaussxw(N)`
+    Examples
+    --------
+    >>> x, w = gaussxw(3)
+    >>> len(x)
+    3
+    >>> len(w)
+    3
+    """
+    x, w = np.polynomial.legendre.leggauss(N)
+    return x, w
 
-Calcula los nodos $x_i$ y los pesos $w_i$ para la Cuadratura de Gauss-Legendre en el intervalo canónico $[-1, 1]$ apoyándose en la rutina `numpy.polynomial.legendre.leggauss`.
 
-#### Parámetros
+def gaussxwab(a, b, x, w):
+    """
+    Transforma nodos y pesos de Gauss-Legendre desde el intervalo
+    [-1, 1] hacia un intervalo arbitrario [a, b].
 
-| Nombre | Tipo | Descripción |
-| :--- | :--- | :--- |
-| **`N`** | `int` | Número de puntos o nodos de integración ($N \ge 1$). |
+    Parameters
+    ----------
+    a : float
+        Límite inferior del intervalo.
+    b : float
+        Límite superior del intervalo.
+    x : numpy.ndarray
+        Nodos en el intervalo [-1, 1].
+    w : numpy.ndarray
+        Pesos asociados a los nodos.
 
-#### Retorno
+    Returns
+    -------
+    tuple[numpy.ndarray, numpy.ndarray]
+        Una tupla que contiene:
+        - x': nodos transformados al intervalo [a, b].
+        - w': pesos transformados al intervalo [a, b].
 
-* **`x`** (`numpy.ndarray`): Arreglo unidimensional con los $N$ nodos en $[-1, 1]$.
-* **`w`** (`numpy.ndarray`): Arreglo unidimensional con los $N$ pesos correspondientes.
+    Examples
+    --------
+    >>> x, w = gaussxw(2)
+    >>> x_new, w_new = gaussxwab(1.0, 3.0, x, w)
+    >>> len(x_new)
+    2
+    """
+    return (
+        0.5 * (b - a) * x + 0.5 * (b + a),
+        0.5 * (b - a) * w
+    )
 
-#### Ejemplo de uso
 
-```python
->>> x, w = gaussxw(3)
->>> print(x)
-[-0.77459667  0.          0.77459667]
->>> print(w)
-[0.55555556 0.88888889 0.55555556]
+def func(varInd):
+    """
+    Evalúa la función que será integrada mediante cuadratura de Gauss.
+
+    La función está definida como:
+
+        f(x) = x^6 - x^2 sin(2x)
+
+    Parameters
+    ----------
+    varInd : float or numpy.ndarray
+        Punto o conjunto de puntos donde se evaluará la función.
+
+    Returns
+    -------
+    float or numpy.ndarray
+        Valor de la función evaluada.
+
+    Examples
+    --------
+    >>> func(1)
+    1 - sin(2)
+
+    >>> func(np.array([1, 2]))
+    array([...])
+    """
+    return varInd**6 - (varInd**2 * np.sin(2 * varInd))

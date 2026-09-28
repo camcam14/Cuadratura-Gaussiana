@@ -177,12 +177,11 @@ Al ejecutar el programa se obtienen aproximaciones de la integral para cada valo
 
 | Número de puntos (N) | Aproximación |
 |---------------------|-------------|
-| 2 | `resultN2` |
-| 3 | `resultN3` |
-| 4 | `resultN4` |
-| 5 | `resultN5` |
-| 6 | `resultN6` |
-
+| 2 | `306.8199344959197` |
+| 3 | `317.264151733829` |
+| 4 | `317.3453903341579` |
+| 5 | `317.34422672196945` |
+| 6 | `317.34424688999616` |
 
 ---
 
