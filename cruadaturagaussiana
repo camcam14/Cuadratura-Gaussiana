@@ -1,7 +1,6 @@
 import numpy as np
 
 def gaussxw(N):
-    x, w = np.polynomial.legendre.leggauss(N)
     """
     Obtiene los nodos y pesos de la cuadratura de Gauss-Legendre.
 
@@ -21,6 +20,9 @@ def gaussxw(N):
     >>> len(x)
     3
     """
+
+    x, w = np.polynomial.legendre.leggauss(N)
+
     return x, w
 
 def gaussxwab(a, b, x, w):
