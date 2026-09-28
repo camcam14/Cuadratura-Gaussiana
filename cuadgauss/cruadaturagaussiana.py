@@ -34,13 +34,10 @@ def gaussxwab(a, b, x, w):
     ----------
     a : float
         Límite inferior del intervalo.
-        
     b : float
         Límite superior del intervalo.
-        
     x : numpy.ndarray
         Nodos de Gauss-Legendre.
-        
     w : numpy.ndarray
         Pesos de Gauss-Legendre.
 
