@@ -1,8 +1,8 @@
 # Tutorial: Integración Numérica con Cuadratura Gaussiana
 
-En este tutorial aprenderemos a utilizar las funciones de `cruadaturagaussiana.py` para calcular numéricamente la siguiente integral en el intervalo $[0, 2]$:
+E
 
-$$I = \int_{0}^{2} \left( x^6 - x^2 \sin(2x) \right) dx$$
+$$I = \int_{1}^{3} \left( x^6 - x^2 \sin(2x) \right) dx$$
 
 ---
 
@@ -16,7 +16,7 @@ $$I \approx \sum_{i=1}^{N} w_i \, f(x_i)$$
 
 ## Guía Paso a Paso
 
-=== "Paso 1: Importar y Definir Funciones"
+Paso 1: Importar y Definir Funciones
 
     Definimos la función integrando $f(x)$, las funciones para obtener nodos y pesos en el intervalo canónico $[-1, 1]$, y la transformación afín al intervalo $[a, b]$.
 
@@ -34,18 +34,16 @@ $$I \approx \sum_{i=1}^{N} w_i \, f(x_i)$$
 
     def gaussxwab(a, b, x, w):
         """Mapea los nodos y pesos del intervalo [-1, 1] al intervalo [a, b]."""
-        x_mapped = 0.5 * (b - a) * x + 0.5 * (b + a)
-        w_mapped = 0.5 * (b - a) * w
-        return x_mapped, w_mapped
+        return 0.5 * (b - a) * x + 0.5 * (b + a), 0.5 * (b - a) * w
     ```
 
-=== "Paso 2: Evaluar la Integral para N = 3 y N = 4"
+Paso 2: Evaluar la Integral para N = 3 y N = 4
 
     Calculamos los nodos y pesos transformados para el intervalo $[0, 2]$ y realizamos el producto escalar entre los pesos y los valores de la función evaluada en los nodos.
 
     ```python
     # Definición de límites del intervalo
-    a, b = 0.0, 2.0
+    a, b = 1.0, 3.0
 
     # Evaluación con N = 3 nodos
     x3_std, w3_std = gaussxw(3)
@@ -61,7 +59,7 @@ $$I \approx \sum_{i=1}^{N} w_i \, f(x_i)$$
     print(f"I(N=4) = {integral_4:.8f}")
     ```
 
-=== "Paso 3: Análisis de Error Relativo"
+Paso 3: Análisis de Error Relativo
 
     Tomando como referencia de alta precisión el cálculo con $N = 100$ nodos, calculamos el porcentaje de error relativo.
 
@@ -77,30 +75,6 @@ $$I \approx \sum_{i=1}^{N} w_i \, f(x_i)$$
 
     print(f"Error relativo N=3: {err_3:.5f}%")
     print(f"Error relativo N=4: {err_4:.6f}%")
-    ```
-
-=== "Código Completo Ejecutable"
-
-    ```python
-    import numpy as np
-
-    def f(x):
-        return x**6 - (x**2) * np.sin(2 * x)
-
-    def gaussxw(N):
-        return np.polynomial.legendre.leggauss(N)
-
-    def gaussxwab(a, b, x, w):
-        return 0.5 * (b - a) * x + 0.5 * (b + a), 0.5 * (b - a) * w
-
-    if __name__ == "__main__":
-        a, b = 0.0, 2.0
-        
-        for N in [3, 4, 10]:
-            x_std, w_std = gaussxw(N)
-            x, w = gaussxwab(a, b, x_std, w_std)
-            resultado = np.sum(w * f(x))
-            print(f"Resultado con N = {N:2d}: {resultado:.10f}")
     ```
 
 ---
