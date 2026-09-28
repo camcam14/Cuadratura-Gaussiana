@@ -6,24 +6,27 @@ $$I = \int_{0}^{2} \left( x^6 - x^2 \sin(2x) \right) dx$$
 
 ---
 
-## 1. Declaración del Script y Funciones
-
-El archivo fuente `cruadaturagaussiana.py` define la función integrando $f(x)$, las rutinas de cálculo de nodos/pesos y la rutina de cambio de intervalo:
 
 ```python
 import numpy as np
 
 def f(x):
-    """Función a integrar: f(x) = x^6 - x^2 * sin(2x)"""
+    #Función a integrar: $f(x) = x^6 - x^2 * sin(2x)$
+
     return x**6 - (x**2) * np.sin(2 * x)
 
 def gaussxw(N):
-    """Calcula nodos y pesos de Gauss-Legendre en [-1, 1]."""
+
+    #Calcula nodos y pesos de Gauss-Legendre en [-1, 1] 
+
     x, w = np.polynomial.legendre.leggauss(N)
     return x, w
 
 def gaussxwab(a, b, x, w):
-    """Transforma nodos y pesos del intervalo [-1, 1] al intervalo [a, b]."""
+
+    #Transforma nodos y pesos del intervalo [-1, 1] al intervalo [a, b]
+
+
      return 0.5 * (b - a) * x + 0.5 * (b + a), 0.5 * (b - a) * w
 
 n2 = gaussxw(2)

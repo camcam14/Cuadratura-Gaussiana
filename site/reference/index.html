@@ -310,13 +310,69 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#gaussxw" class="md-nav__link">
+  <a href="#funciones-del-modulo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        gaussxw
+        Funciones del Módulo
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Funciones del Módulo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gaussxwn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        gaussxw(N)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="gaussxw(N)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parametros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parámetros
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retorno" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retorno
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-de-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejemplo de uso
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -342,7 +398,7 @@
   <span class="md-ellipsis">
     
   
-    Tutorial de Uso
+    Tutorial: Resolución de la Integral Definida
   
 
     
@@ -382,13 +438,69 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#gaussxw" class="md-nav__link">
+  <a href="#funciones-del-modulo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        gaussxw
+        Funciones del Módulo
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Funciones del Módulo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gaussxwn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        gaussxw(N)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="gaussxw(N)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parametros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parámetros
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retorno" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retorno
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-de-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejemplo de uso
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -412,33 +524,44 @@
 <h1 id="referencia-de-funciones">Referencia de Funciones</h1>
 <p>Esta sección contiene la documentación técnica de las funciones desarrolladas en el módulo de integración por <strong>Cuadratura de Gauss-Legendre</strong>.</p>
 <hr />
-<h2 id="gaussxw"><code>gaussxw</code></h2>
-<p>Calcula los nodos de integración <span class="arithmatex">\(x_i\)</span> y sus respectivos pesos <span class="arithmatex">\(w_i\)</span> en el intervalo canónico <span class="arithmatex">\([-1, 1]\)</span> para un grado <span class="arithmatex">\(N\)</span> dado.</p>
-<p>```python
-def gaussxw(N):
-    """
-    Calcula nodos y pesos para la Cuadratura de Gauss-Legendre.</p>
-<pre><code>Parameters
-----------
-N : int
-    Número de puntos de integración (nodos).
-
-Returns
--------
-x : numpy.ndarray
-    Nodos de integración en el intervalo [-1, 1].
-w : numpy.ndarray
-    Pesos asociados a cada nodo.
-
-Examples
---------
-&gt;&gt;&gt; x, w = gaussxw(2)
-&gt;&gt;&gt; x
-array([-0.57735027,  0.57735027])
-&gt;&gt;&gt; w
-array([1., 1.])
-"""
-</code></pre>
+<h2 id="funciones-del-modulo">Funciones del Módulo</h2>
+<h3 id="gaussxwn"><code>gaussxw(N)</code></h3>
+<p>Calcula los nodos <span class="arithmatex">\(x_i\)</span> y los pesos <span class="arithmatex">\(w_i\)</span> para la Cuadratura de Gauss-Legendre en el intervalo canónico <span class="arithmatex">\([-1, 1]\)</span> apoyándose en la rutina <code>numpy.polynomial.legendre.leggauss</code>.</p>
+<h4 id="parametros">Parámetros</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nombre</th>
+<th style="text-align: left;">Tipo</th>
+<th style="text-align: left;">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong><code>N</code></strong></td>
+<td style="text-align: left;"><code>int</code></td>
+<td style="text-align: left;">Número de puntos o nodos de integración (<span class="arithmatex">\(N \ge 1\)</span>).</td>
+</tr>
+</tbody>
+</table>
+<h4 id="retorno">Retorno</h4>
+<ul>
+<li><strong><code>x</code></strong> (<code>numpy.ndarray</code>): Arreglo unidimensional con los <span class="arithmatex">\(N\)</span> nodos en <span class="arithmatex">\([-1, 1]\)</span>.</li>
+<li><strong><code>w</code></strong> (<code>numpy.ndarray</code>): Arreglo unidimensional con los <span class="arithmatex">\(N\)</span> pesos correspondientes.</li>
+</ul>
+<h4 id="ejemplo-de-uso">Ejemplo de uso</h4>
+<p>```python</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>x, w = gaussxw(3)
+print(x)
+[-0.77459667  0.          0.77459667]
+print(w)
+[0.55555556 0.88888889 0.55555556]</p>
+</blockquote>
+</blockquote>
+</blockquote>
 
 
 
